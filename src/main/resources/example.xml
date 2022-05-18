@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 
+  - This file is included by the struts.xml file as an example
+  - of how to break up the configuration file into multiple files.
+-->
+<struts>
+    <package name="example" namespace="/example" extends="struts-default">
+
+        <default-action-ref name="HelloWorld" />
+
+        <action name="TestRegister" class="mysecondproject.example.TestRegister">
+            <result>/WEB-INF/example/TestRegister.jsp</result>
+            <result name="Registered"> /WEB-INF/example/TestThankyou.jsp</result>
+        </action>
+
+        <action name="MyLogin" class="mysecondproject.example.MyLogin">
+            <result name="SuccessfulLogin">/WEB-INF/example/UserInfo.jsp</result>
+            <result >/WEB-INF/example/MyLogin.jsp</result>
+        </action>
+
+        <action name="UserInfo" class="mysecondproject.example.UserInfo">
+            <result>/WEB-INF/example/UserInfo.jsp</result>
+        </action>
+
+        <action name="About" class="mysecondproject.example.About">
+            <result>/WEB-INF/example/About.jsp</result>
+        </action>
+
+        <action name="Burger" class="mysecondproject.example.Burger">
+            <result>/WEB-INF/example/Burger.jsp</result>
+        </action>
+
+        <action name="Fries" class="mysecondproject.example.Fries">
+            <result>/WEB-INF/example/Fries.jsp</result>
+        </action>
+
+        <action name="Drinks" class="mysecondproject.example.Drinks">
+            <result>/WEB-INF/example/Drinks.jsp</result>
+        </action>
+
+        <action name="HelloWorld" class="mysecondproject.example.HelloWorld">
+            <result>/WEB-INF/example/HelloWorld.jsp</result>
+        </action>
+
+        <action name="Login_*" method="{1}" class="mysecondproject.example.Login">
+            <result name="input">/WEB-INF/example/Login.jsp</result>
+            <result type="redirectAction">Menu</result>
+        </action>
+
+        <action name="*" class="mysecondproject.example.ExampleSupport">
+            <result>/WEB-INF/example/{1}.jsp</result>
+        </action>
+
+        <!-- Add additional "example" package actions here. -->
+
+    </package>
+</struts>
